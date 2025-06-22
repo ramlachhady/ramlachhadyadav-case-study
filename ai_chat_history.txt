@@ -1,0 +1,110 @@
+
+# 🧠 AI Chat Summary – Customer Support Ticket Analyzer
+
+This is a condensed version of the chat with relevant parts from the project journey, including setup, roadmap, decisions, and implementation summaries.
+
+---
+
+## 📌 SOFTWARE & HARDWARE REQUIREMENTS
+
+### Software
+- Python 3.10+
+- VS Code
+- pip + virtual environment
+- Git (optional, for GitHub push)
+- Ollama (for local LLM model serving)
+- Phi-3 Model (via Ollama: `ollama run phi3`)
+
+### Python Packages Installed
+- pydantic
+- pydantic-ai
+- openai
+- python-dotenv
+- rich, httpx, uvicorn (from pydantic-ai deps)
+
+---
+
+## 🛠️ PROJECT STRUCTURE CREATED
+
+```
+ramlachhadyadav-case-study/
+├── main.py
+├── local_ollama_client.py
+├── agents/
+│   ├── ticket_classifier.py
+│   └── ticket_router.py
+├── evaluation/
+├── docs/
+├── .env
+├── README.md
+└── ai_chat_history.txt
+```
+
+---
+
+## 🧭 PROJECT ROADMAP (Executed)
+
+### PHASE 1: Setup
+- ✅ Installed Python, pip, VS Code, Git
+- ✅ Set up and activated Python virtual environment
+- ✅ Installed Ollama and downloaded phi3 model
+- ✅ Created clean folder structure
+
+### PHASE 2: Agent System
+- ✅ Built ticket classifier agent using local model
+- ✅ Built router agent with business logic
+- ✅ Integrated both into `main.py`
+
+### PHASE 3: Evaluation
+- ✅ Ran 5 realistic + 2 edge-case tickets
+- ✅ Printed classifier + router output
+- ✅ Logged correctness of results
+
+### PHASE 4: Documentation
+- ✅ Created README.md
+- ✅ Created EVALUATION.md
+- 🔜 Save chat history
+- 🔜 Push code to GitHub
+- 🔜 Compose submission email
+
+---
+
+## 🤖 PROMPT ENGINEERING
+
+### Classifier Prompt Template
+- Role: You are a support ticket classifier
+- Respond with: `Label: <priority>` and `Reason: <why>`
+
+### Fallbacks Built In
+- If label line missing, use keywords like “urgent”, “frustration”, “low”, etc.
+- Strip markdown characters like `**Label:` using regex
+
+---
+
+## 🧪 EVALUATION RESULTS SUMMARY
+
+- All test cases correctly classified
+- Routing decisions aligned with urgency + tier + value
+- System output:
+  ```
+  🏷️ Priority Label: High
+  📝 Explanation: ... 
+  📦 Routed To: priority-support
+  📋 Routing Reason: ...
+  ```
+
+---
+
+## 💡 CHALLENGES SOLVED
+
+- ❌ OpenAI quota error → switched to local Phi3 model
+- ❌ pydantic-ai import issue → avoided CLI dependency
+- ❌ LLM not always giving label → added fallback logic
+- ✅ Everything now works via local interactive terminal
+
+---
+
+## 👨‍💻 Built By
+**Ramlachhad Shivmurat Yadav**  
+For the AI/ML Engineer Case Study – Draconic Careers
+
